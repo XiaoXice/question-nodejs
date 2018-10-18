@@ -7,7 +7,7 @@
             <div class="other-text">
                 你的最终得分
             </div>
-            <div style="font-size: 1em;" class="other-text">
+            <div style="font-size: 0.25rem;" class="other-text">
                 分享到朋友圈,叫小伙伴们一起来答题
             </div>
         </el-card>
@@ -66,12 +66,12 @@ export default {
 }
 .score{
     text-align:center;
-    font-size: 5em;
+    font-size: 2rem;
 }
 .other-text{
     text-align:center;
     color: gray;
-    font-size: 1.2em;
+    font-size: 0.3rem;
 }
 
 .suvey-main{

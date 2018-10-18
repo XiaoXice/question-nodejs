@@ -7,6 +7,8 @@ import vueResource from 'vue-resource';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from './router'
 
+import 'lib-flexible'
+
 import VueWechatTitle from 'vue-wechat-title';  
 Vue.use(VueWechatTitle)
 
@@ -26,3 +28,4 @@ new Vue({
   template: '<App/>',
   render: h => h(App)
 })
+

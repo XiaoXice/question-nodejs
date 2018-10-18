@@ -1,6 +1,6 @@
 <template>
   <el-container id="app">
-    <el-header>
+    <el-header style="margin-left:-8px;margin-top:-8px; width:100vw;">
       <el-row type="flex" class="header" justify="space-around">
         <div class="header-text header-col">
           {{$store.state.title}}
@@ -27,10 +27,8 @@ export default {
 </script>
 
 <style>
-/* body{
-  background-color: #bce5ff;
-} */
-body {
+body{
+  background-color: #fff;
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 
@@ -48,7 +46,7 @@ body {
 }
 .header-text {
   color: aliceblue;
-  font-size: 3.5ex;
+  font-size: 0.75rem;
   text-align: center;
 }
 /* #app {
@@ -62,6 +60,10 @@ body {
 .center-align {
   text-align: center;
   color: #888888;
-  font-size: 0.8em;
+  font-size: 0.3rem;
+}
+
+.el-message-box {
+  width: auto;
 }
 </style>
