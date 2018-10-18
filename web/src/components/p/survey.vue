@@ -145,7 +145,7 @@ export default {
           confirmButtonText: '确定',
           callback: action => {
             // this.$router.replace({name: 'checkin'});
-            this.$router.back();
+            window.location.href = "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5NzY1MjYyMg==&scene=124#wechat_redirect";
           }
         })
       }

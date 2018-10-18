@@ -65,5 +65,6 @@ body{
 
 .el-message-box {
   width: auto;
+  max-width: 90vw;
 }
 </style>
