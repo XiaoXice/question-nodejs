@@ -1,10 +1,10 @@
 <template>
   <div class="checkin-main">
     <el-input :class="{ 'rad-border': (checked&&!username)}" v-model="username" clearable>
-      <template slot="prepend">账号:</template>
+      <template slot="prepend">账号：</template>
     </el-input>
     <el-input :class="{ 'rad-border': (checked&&!password)}" type="password" v-model="password" clearable>
-      <template slot="prepend">密码:</template>
+      <template slot="prepend">密码：</template>
     </el-input>
     <el-button type="primary" @click="checkTable" round>登陆</el-button>
   </div>
@@ -26,7 +26,7 @@ export default {
     checkTable: function(){
       if(!(this.username && this.password)){
         this.$notify.error({
-          title: '好想哪里不太对',
+          title: '好像哪里不太对',
           message: '亲的信息还没有填全面'
         });
         this.checked = true;

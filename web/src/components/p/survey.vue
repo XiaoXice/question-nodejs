@@ -2,23 +2,16 @@
   <el-collapse v-loading="loading" accordion class="suvey-main">
     <el-header style="position: fixed;z-index:999;left:0;top:0; width:100vw;">
       <el-row type="flex" class="header" justify="space-around">
-        <div class="header-text header-col">
-          {{title}}
-        </div>
+        <div class="header-text header-col">{{title}}</div>
       </el-row>
     </el-header>
     <el-collapse-item :index="index" class="suvey-part" v-for="(item, index) in items" :key="index">
       <template slot="title">
-        <div :class="{ finished: isFinished(index)}">
-          第 {{index+1}} 部分-{{item.title}} ({{theChooseNum(index)}}/{{item.questions.length}})
-        </div>
+        <div :class="{ finished: isFinished(index)}">第 {{index+1}} 部分-{{item.title}} ({{theChooseNum(index)}}/{{item.questions.length}})</div>
       </template>
       <div v-if="item.type == 0">
         <div class="section" v-for="(question, Qindex) in item.questions" :key="question.QID">
-          <p>
-          {{ Qindex + 1 }}.
-          {{ question.text }}
-          </p>
+          <p>{{ Qindex + 1 }}.{{ question.text }}</p>
           <div>
             <el-radio v-for="(option, Oindex) in question.options" :key="Oindex" v-model="question.answer" :label="option.oid">{{alphabet(Oindex)}}.{{option.context}}</el-radio>
           </div>
@@ -26,10 +19,7 @@
       </div>
       <div v-else-if="item.type == 1">
         <div class="section" v-for="(question, Qindex) in item.questions" :key="question.QID">
-          <p>
-          {{ Qindex + 1 }}.
-          {{ question.text }}
-          </p>
+          <p>{{ Qindex + 1 }}.{{ question.text }}</p>
           <div>
             <el-radio v-for="(option, Oindex) in question.options" :key="Oindex" v-model="question.answer" :label="option.oid">{{option.context}}</el-radio>
             <!-- <el-radio v-model="question.answer" :label="1">正确</el-radio>
@@ -39,10 +29,7 @@
       </div>
       <div v-else-if="item.type == 2">
         <div class="section" v-for="(question, Qindex) in item.questions" :key="question.QID">
-          <p>
-          {{ Qindex + 1 }}.
-          {{ question.text }}
-          </p>
+          <p>{{ Qindex + 1 }}.{{ question.text }}</p>
           <div>
             <el-input v-model="question.answer" placeholder="请输入内容"></el-input>
           </div>
@@ -124,7 +111,7 @@ export default {
           if(this.isAllFinished()){
             this.sendPaper();
           }else{
-            this.$alert("很抱歉您没有作答完毕，欢迎再次尝试。", "提示:",{
+            this.$alert("很抱歉您没有作答完毕，欢迎再次尝试。", "提示：",{
               confirmButtonText: '确定',
               callback: action => {
                 // this.$router.replace({name: 'checkin'});
@@ -136,12 +123,12 @@ export default {
         clock1.begin();
       }else{
         var errMsg = {
-          400: "您已经挑战过一次了,请关注以后的活动",
-          403: "活动尚未开始或已过期,别灰心,学生会好玩的活动有的是",
-          404: "你可能到了外星球,这个活动我们没有",
+          400: "您已经挑战过一次了，请关注以后的活动",
+          403: "活动尚未开始或已过期，别灰心，学生会好玩的活动有的是",
+          404: "你可能到了外星球，这个活动我们没有",
           500: "%^&$%^%&^^$%^%$%"
         }
-        this.$alert(errMsg[res.data.code]||res.data.message,"提示:",{
+        this.$alert(errMsg[res.data.code]||res.data.message,"提示：",{
           confirmButtonText: '确定',
           callback: action => {
             // this.$router.replace({name: 'checkin'});
@@ -150,7 +137,7 @@ export default {
         })
       }
     },err=>{
-      this.$alert("未知错误,请联系管理员或稍后再试", "错误:", {
+      this.$alert("未知错误，请联系管理员或稍后再试", "错误：", {
           confirmButtonText: '确定',
           callback: action => {
             // this.$router.replace({name: 'checkin'});
@@ -159,7 +146,7 @@ export default {
         })
       console.log("err" + err)
     }).catch(err=>{
-      this.$alert("未知错误,请联系管理员或稍后再试", "错误:",{
+      this.$alert("未知错误，请联系管理员或稍后再试", "错误：",{
           confirmButtonText: '确定',
           callback: action => {
             // this.$router.replace({name: 'checkin'});
@@ -301,7 +288,7 @@ export default {
             this.$store.state.power = 2;
             this.$router.push({name: 'score'})
           }else{
-            alert("提交失败 \n 错误信息:"+res.data.message);
+            alert("提交失败\n 错误信息："+res.data.message);
           }
         },err=>{
           alert("服务器错误，请联系系统管理员！")

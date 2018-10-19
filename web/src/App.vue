@@ -2,9 +2,7 @@
   <el-container id="app">
     <el-header style="margin-left:-8px;margin-top:-8px; width:100vw;">
       <el-row type="flex" class="header" justify="space-around">
-        <div class="header-text header-col">
-          {{$store.state.title}}
-        </div>
+        <div class="header-text header-col">{{$store.state.title}}</div>
       </el-row>
     </el-header>
     <el-main>
@@ -12,9 +10,7 @@
     </el-main>
     <el-footer class="page-footer">
       <div class="container">
-        <div class="section center-align white-text">
-          ©2018 北京邮电大学学生会网络部 
-        </div>
+        <div class="section center-align white-text">©2018 北京邮电大学学生会网络部</div>
     </div>
     </el-footer>
   </el-container>
