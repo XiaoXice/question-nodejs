@@ -4,4 +4,4 @@ import newApaper from './newApaper.vue';
 export default {
     index,
     newApaper
-}s
+}

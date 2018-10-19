@@ -111,7 +111,7 @@ export default {
           if(this.isAllFinished()){
             this.sendPaper();
           }else{
-            this.$alert("很抱歉您没有作答完毕，欢迎再次尝试。", "提示:",{
+            this.$alert("很抱歉您没有作答完毕，欢迎再次尝试。", "提示：",{
               confirmButtonText: '确定',
               callback: action => {
                 // this.$router.replace({name: 'checkin'});
@@ -123,12 +123,12 @@ export default {
         clock1.begin();
       }else{
         var errMsg = {
-          400: "您已经挑战过一次了,请关注以后的活动",
-          403: "活动尚未开始或已过期,别灰心,学生会好玩的活动有的是",
-          404: "你可能到了外星球,这个活动我们没有",
+          400: "您已经挑战过一次了，请关注以后的活动",
+          403: "活动尚未开始或已过期，别灰心，学生会好玩的活动有的是",
+          404: "你可能到了外星球，这个活动我们没有",
           500: "%^&$%^%&^^$%^%$%"
         }
-        this.$alert(errMsg[res.data.code]||res.data.message,"提示:",{
+        this.$alert(errMsg[res.data.code]||res.data.message,"提示：",{
           confirmButtonText: '确定',
           callback: action => {
             // this.$router.replace({name: 'checkin'});
@@ -137,7 +137,7 @@ export default {
         })
       }
     },err=>{
-      this.$alert("未知错误,请联系管理员或稍后再试", "错误:", {
+      this.$alert("未知错误，请联系管理员或稍后再试", "错误：", {
           confirmButtonText: '确定',
           callback: action => {
             // this.$router.replace({name: 'checkin'});
@@ -146,7 +146,7 @@ export default {
         })
       console.log("err" + err)
     }).catch(err=>{
-      this.$alert("未知错误,请联系管理员或稍后再试", "错误:",{
+      this.$alert("未知错误，请联系管理员或稍后再试", "错误：",{
           confirmButtonText: '确定',
           callback: action => {
             // this.$router.replace({name: 'checkin'});
@@ -288,7 +288,7 @@ export default {
             this.$store.state.power = 2;
             this.$router.push({name: 'score'})
           }else{
-            alert("提交失败 \n 错误信息:"+res.data.message);
+            alert("提交失败\n 错误信息："+res.data.message);
           }
         },err=>{
           alert("服务器错误，请联系系统管理员！")

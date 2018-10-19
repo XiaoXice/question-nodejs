@@ -28,10 +28,10 @@ export default {
             console.log(res);
             if(res.data.code == 200){
             this.$store.state.title = res.data.data.title;
-            document.title = "我在" + res.data.data.title + "得到" + this.$store.state.score + "分的好成绩,快来试试吧";
+            document.title = "我在" + res.data.data.title + "得到" + this.$store.state.score + "分的好成绩，快来试试吧";
             this.$store.state.DocTitle = document.title;
             }else{
-            alert("服务器错误，请联系系统管理员！\n 错误信息:"+res.data.message);
+            alert("服务器错误，请联系系统管理员！\n 错误信息："+res.data.message);
             }
         }, function(err) {
             alert("服务器错误，请联系系统管理员！")

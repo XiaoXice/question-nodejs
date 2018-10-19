@@ -12,7 +12,7 @@
     <el-input :class="{ 'rad-border': (checked&&(!$store.state.class||type.class))}" type="number" placeholder="不知道说什么了..." v-model="$store.state.class" clearable>
       <template slot="prepend">班级:</template>
     </el-input>
-    <el-input :class="{ 'rad-border': (checked&&(!$store.state.phone||type.phone))}" type="number" placeholder="联系不上是没有奖励的(任性" v-model="$store.state.phone" clearable>
+    <el-input :class="{ 'rad-border': (checked&&(!$store.state.phone||type.phone))}" type="number" placeholder="联系不上是没有奖励的（任性" v-model="$store.state.phone" clearable>
       <template slot="prepend">手机:</template>
     </el-input>
     <div class="section">
@@ -49,9 +49,9 @@ export default {
           this.loading = false;
         }else{
           var errMsg = {
-            400: "您已经挑战过一次了,请关注以后的活动",
-            403: "活动尚未开始或已过期,别灰心,学生会好玩的活动有的是",
-            404: "你可能到了外星球,这个活动我们没有",
+            400: "您已经挑战过一次了，请关注以后的活动",
+            403: "活动尚未开始或已过期，别灰心,学生会好玩的活动有的是",
+            404: "你可能到了外星球，这个活动我们没有",
             500: "%^&$%^%&^^$%^%$%"
           }
           this.$alert(errMsg[res.data.code]||res.data.message,"提示:",{
@@ -96,7 +96,7 @@ export default {
       }else if(this.$store.state.number > 2019000000){
         this.$notify.error({
           title: '好像哪里不太对',
-          message: '你是穿越过来的么?'
+          message: '你是穿越过来的么？'
         });
         this.type.number=true;cont++;
       }

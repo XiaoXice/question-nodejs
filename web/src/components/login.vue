@@ -1,10 +1,10 @@
 <template>
   <div class="checkin-main">
     <el-input :class="{ 'rad-border': (checked&&!username)}" v-model="username" clearable>
-      <template slot="prepend">账号:</template>
+      <template slot="prepend">账号：</template>
     </el-input>
     <el-input :class="{ 'rad-border': (checked&&!password)}" type="password" v-model="password" clearable>
-      <template slot="prepend">密码:</template>
+      <template slot="prepend">密码：</template>
     </el-input>
     <el-button type="primary" @click="checkTable" round>登陆</el-button>
   </div>
