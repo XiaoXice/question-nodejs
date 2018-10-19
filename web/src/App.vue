@@ -12,9 +12,7 @@
     </el-main>
     <el-footer class="page-footer">
       <div class="container">
-        <div class="section center-align white-text">
-          ©2018 北京邮电大学学生会网络部 
-        </div>
+        <div class="section center-align white-text">©2018 北京邮电大学学生会网络部</div>
     </div>
     </el-footer>
   </el-container>

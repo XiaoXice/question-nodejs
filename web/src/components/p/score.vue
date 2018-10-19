@@ -1,22 +1,13 @@
 <template>
     <el-collapse accordion class="suvey-main">
         <el-card class="box-card green-color">
-            <div class="score">
-                {{$store.state.score}}
-            </div>
-            <div class="other-text">
-                你的最终得分
-            </div>
-            <div style="font-size: 0.25rem;" class="other-text">
-                分享到朋友圈,叫小伙伴们一起来答题
-            </div>
+            <div class="score">{{$store.state.score}}</div>
+            <div class="other-text">你的最终得分</div>
+            <div style="font-size: 0.25rem;" class="other-text">分享到朋友圈,叫小伙伴们一起来答题</div>
         </el-card>
         <el-card class="box-card">
             <img class="img" src="/static/bupt_wx.svg">
-            <div class="other-text">
-                欢迎继续关注北邮学生会公众号<br>
-                获取相关活动一手资讯
-            </div>
+            <div class="other-text">欢迎继续关注北邮学生会公众号<br/>获取相关活动一手资讯</div>
         </el-card>
     </el-collapse>
 </template>

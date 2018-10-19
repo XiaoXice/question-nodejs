@@ -16,9 +16,7 @@
       <template slot="prepend">手机:</template>
     </el-input>
     <div class="section">
-      <h5 style="font-size: 0.4rem;">
-        本次答题限时 15 分钟。
-      </h5>
+      <h5 style="font-size: 0.4rem;">本次答题限时 15 分钟。</h5>
     </div>
     <el-button type="primary" :disabled="canUsePaper" @click="checkTable" round>让我们开始吧</el-button>
   </div>

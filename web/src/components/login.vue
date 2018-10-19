@@ -26,7 +26,7 @@ export default {
     checkTable: function(){
       if(!(this.username && this.password)){
         this.$notify.error({
-          title: '好想哪里不太对',
+          title: '好像哪里不太对',
           message: '亲的信息还没有填全面'
         });
         this.checked = true;
