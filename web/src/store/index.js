@@ -15,7 +15,9 @@ export default new vuex.Store({
         school: '',// 学院
         class: '',//班号
         phone: '',
+        other: {},
         score: 0,
+        timeLimit: 0,
         DocTitle: "学生会答题系统"
     },
     mutations:{ // 这里的方法必须同步！

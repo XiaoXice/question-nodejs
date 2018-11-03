@@ -80,7 +80,7 @@ export default {
           school:user.school,
           class:user.class,
           phone:user.phone,
-          // other:user.other || {},
+          other:user.other,
         }
       })
     ).then(res=>{
@@ -161,7 +161,7 @@ export default {
   },
   data() {
     return {
-      timeLim: 900,
+      timeLim: this.$store.state.timeLimit,
       finished: false,
       loading: true,
       items: null,

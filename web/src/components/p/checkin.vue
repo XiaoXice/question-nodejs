@@ -1,22 +1,32 @@
 <template>
   <div v-loading="loading" class="checkin-main">
-    <el-input :class="{ 'rad-border': (checked&&(!$store.state.name||type.name))}" placeholder="一定是真名呦~" v-model="$store.state.name" clearable>
+    <el-input :class="{ 'rad-border': (checked&&(!$store.state.name||type.name))}" placeholder="一定是真名呦~" v-model="$store.state.name" >
       <template slot="prepend"><div>姓名:</div></template>
     </el-input>
-    <el-input :class="{ 'rad-border': (checked&&(!$store.state.number||type.number))}" type="number" placeholder="注意别填错啦~" v-model="$store.state.number" clearable>
+    <el-input :class="{ 'rad-border': (checked&&(!$store.state.number||type.number))}" type="number" placeholder="注意别填错啦~" v-model="$store.state.number" >
       <template slot="prepend">学号:</template>
     </el-input>
-    <el-input :class="{ 'rad-border': (checked&&(!$store.state.school||type.school))}" placeholder="一定来自出色的学院" v-model="$store.state.school" clearable>
+    <el-input :class="{ 'rad-border': (checked&&(!$store.state.school||type.school))}" placeholder="一定来自出色的学院" v-model="$store.state.school" >
       <template slot="prepend">学院:</template>
     </el-input>
-    <el-input :class="{ 'rad-border': (checked&&(!$store.state.class||type.class))}" type="number" placeholder="不知道说什么了..." v-model="$store.state.class" clearable>
+    <el-input :class="{ 'rad-border': (checked&&(!$store.state.class||type.class))}" type="number" placeholder="不知道说什么了..." v-model="$store.state.class" >
       <template slot="prepend">班级:</template>
     </el-input>
-    <el-input :class="{ 'rad-border': (checked&&(!$store.state.phone||type.phone))}" type="number" placeholder="联系不上是没有奖励的（任性" v-model="$store.state.phone" clearable>
+    <el-input :class="{ 'rad-border': (checked&&(!$store.state.phone||type.phone))}" type="number" placeholder="联系不上是没有奖励的（任性" v-model="$store.state.phone" >
       <template slot="prepend">手机:</template>
     </el-input>
+    <br>
+    <el-input 
+      v-for="(other,index) in others"
+      :key="index"
+      :class="{ 'rad-border': (checked&&(!$store.state.other[other.name]||type.other[other.name]))}" 
+      :type="other.type" 
+      :placeholder="other.placeholder" 
+      v-model="$store.state.other[other.name]">
+      <template slot="prepend">{{other.text}}:</template>
+    </el-input>
     <div class="section">
-      <h5 style="font-size: 0.4rem;">本次答题限时 15 分钟。</h5>
+      <h5 style="font-size: 0.4rem;">本次答题限时 {{$store.state.timeLimit / 60}} 分钟。</h5>
     </div>
     <el-button type="primary" :disabled="canUsePaper" @click="checkTable" round>让我们开始吧</el-button>
   </div>
@@ -32,7 +42,11 @@ export default {
     return {
       checked: false,
       canUsePaper: true,
-      type:{},
+      type:{
+        other:{}
+      },
+      others:[
+      ],
       loading: true,
     }
   },
@@ -46,6 +60,8 @@ export default {
           document.title = res.data.data.title + ' | 学生会答题系统';
           this.$store.state.DocTitle = res.data.data.title + ' | 学生会答题系统';
           this.canUsePaper = false;
+          this.others = res.data.data.other;
+          this.$store.state.timeLimit = res.data.data.timeLimit;
           this.loading = false;
         }else{
           var errMsg = {
@@ -77,6 +93,15 @@ export default {
         });
         return false;
       }
+      for(let i = 0; i < this.others.length; i++){
+        if(!(state.other[this.others[i].name])){
+          this.$notify.error({
+            title: '好像哪里不太对',
+            message: '亲的信息还没有填全面(●ˇ∀ˇ●)'
+          });
+          return false;
+        }
+      }
       let cont = 0;
       let re = /^1\d{10}$/;
       if (!re.test(state.phone)) {
@@ -106,6 +131,15 @@ export default {
           message: '班号好像不太对劲的说(●ˇ∀ˇ●)'
         });
         this.type.class=true;cont++;
+      }
+      for(let i = 0; i < this.others.length;i++){
+        if(this.others[i].re && !RegExp(re).test(this.$store.state.other[this.others[i].name])){
+          this.$notify.error({
+            title: '好像哪里不太对',
+            message: this.others[i].text+'好像不太对劲的说(●ˇ∀ˇ●)'
+          });
+          this.type.other[this.others[i].name]=true;cont++;
+        }
       }
       if(cont == 0){
         this.$store.state.power = 1;

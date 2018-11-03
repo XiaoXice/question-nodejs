@@ -1,6 +1,6 @@
-import survey from './survey';
-import checkin from './checkin';
-import score from './score';
+const survey = () => import('./survey')
+const checkin = () => import('./checkin')
+const score = () => import('./score')
 export default {
     survey,
     checkin,

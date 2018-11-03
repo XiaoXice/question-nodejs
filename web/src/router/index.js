@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from '@/components/index'
-import admin from '@/components/admin'
-import login from '@/components/login'
-import ad from '@/components/admin/index.js'
-import p from '@/components/p/index'
-import pIndex from '@/components/p'
+const index = () => import('@/components/index')
+const admin = () => import('@/components/admin')
+const login = () => import('@/components/login')
+import ad  from '@/components/admin/index.js'
+import p  from '@/components/p/index'
+const pIndex = () => import('@/components/p')
 
 import store from '../store/';
 
@@ -16,7 +16,7 @@ export default new Router({
     {
       path: '/p/:id/',
       component: pIndex,
-      children:[
+      children: [
         {
           path: '',
           name: 'checkin',
@@ -30,9 +30,9 @@ export default new Router({
             //console.log(store);
             // console.log(router);
             let power = store.state.power;
-            if(power === 1){
+            if (power === 1) {
               next()
-            }else{
+            } else {
               next('/p/' + to.params.id)
             }
           }
@@ -41,11 +41,11 @@ export default new Router({
           path: 'score',
           name: 'score',
           component: p.score,
-          beforeEnter: function(to, from, next) {
+          beforeEnter: function (to, from, next) {
             let power = store.state.power;
-            if(power === 2){
+            if (power === 2) {
               next()
-            }else{
+            } else {
               next('/p/' + to.params.id)
             }
           }
@@ -61,13 +61,13 @@ export default new Router({
       path: '/admin/',
       component: admin,
       beforeEnter: (to, from, next) => {
-        if(store.state.power === 3){
+        if (store.state.power === 3) {
           next()
-        }else{
+        } else {
           next('/login')
         }
       },
-      children:[
+      children: [
         {
           path: '',
           name: 'admin',
