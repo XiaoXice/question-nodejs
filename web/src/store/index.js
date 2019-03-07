@@ -6,6 +6,7 @@ Vue.use(vuex);
 export default new vuex.Store({
     state:{
         title: "加载中....",
+        realtitle: "",
         power: 0,
         adminUserName: '',
         beginTime: '',

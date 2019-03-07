@@ -57,6 +57,7 @@ export default {
     ).then(function(res) {
         if(res.data.code == 200){
           this.$store.state.title = res.data.data.title;
+          this.$store.state.realtitle = res.data.data.title;
           document.title = res.data.data.title + ' | 学生会答题系统';
           this.$store.state.DocTitle = res.data.data.title + ' | 学生会答题系统';
           this.canUsePaper = false;

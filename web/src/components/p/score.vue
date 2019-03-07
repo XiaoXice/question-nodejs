@@ -21,22 +21,9 @@ export default {
         }
     },
     mounted(){
-        this.$http.post(
-            '/api/getTitle', 
-            JSON.stringify({id: Number(this.$route.params.id)})
-        ).then(function(res) {
-            console.log(res);
-            if(res.data.code == 200){
-            this.$store.state.title = res.data.data.title;
-            document.title = "我在" + res.data.data.title + "得到" + this.$store.state.score + "分的好成绩，快来试试吧";
-            this.$store.state.DocTitle = document.title;
-            }else{
-            alert("服务器错误，请联系系统管理员！\n 错误信息："+res.data.message);
-            }
-        }, function(err) {
-            alert("服务器错误，请联系系统管理员！")
-            console.log("err" + err);  
-        })
+        this.$store.state.title = this.$store.state.realtitle;
+        document.title = "我在" + this.$store.state.realtitle + "得到" + this.$store.state.score + "分的好成绩，快来试试吧";
+        this.$store.state.DocTitle = document.title;
   },
 }
 </script>
